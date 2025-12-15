@@ -1,0 +1,96 @@
+:root{
+--dark:#0f0f14;
+--light:#fff7f9;
+--accent:#d9b26c;
+--text-dark:#f5f5f5;
+--text-light:#3a2a2a;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:var(--dark);
+color:var(--text-dark);
+overflow-x:hidden;
+transition:all .5s ease;
+}
+
+/* DARK/LIGHT MODE */
+body.light{background:var(--light);color:var(--text-light);}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+}
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:3em;margin:0;
+}
+.hero span{color:var(--accent);}
+.hero p{
+max-width:620px;line-height:1.8;margin-top:25px;
+color:inherit;
+}
+.photo{
+width:240px;height:240px;border-radius:50%;object-fit:cover;
+margin:45px 0;border:2px solid rgba(255,255,255,.3);
+box-shadow:0 30px 70px rgba(0,0,0,.6);
+}
+
+/* BUTTON */
+.btn{
+margin-top:40px;padding:14px 42px;border-radius:50px;
+border:1px solid var(--accent);color:var(--accent);
+text-decoration:none;letter-spacing:.5px;transition:.4s;
+}
+.btn:hover{background:var(--accent);color:#000;}
+
+/* DARK MODE TOGGLE */
+.mode-toggle{
+position:fixed;top:20px;right:20px;padding:10px 18px;
+border-radius:50px;background:var(--accent);color:#000;
+cursor:pointer;font-weight:bold;z-index:999;
+}
+
+/* GALLERY */
+section{padding:100px 20px;max-width:1100px;margin:auto;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;margin-top:40px;}
+.grid img{width:100%;height:280px;object-fit:cover;border-radius:22px;filter:brightness(.9);transition:.6s;}
+.grid img:hover{transform:scale(1.05);filter:brightness(1);}
+
+/* LETTER CARD */
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(14px);
+border-radius:28px;padding:60px;
+box-shadow:0 30px 80px rgba(0,0,0,.6);
+margin:auto;
+max-width:750px;
+}
+
+/* TYPING */
+#typing{white-space:pre-line;line-height:1.9;color:inherit;}
+
+/* FOOTER */
+footer{text-align:center;padding:50px 20px;font-size:.85em;opacity:.7;}
+
+/* SPOTIFY */
+.spotify{position:fixed;bottom:20px;right:20px;width:300px;border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,.6);}
+
+/* HEARTS & CONFETTI */
+.heart, .confetti{position:fixed;bottom:0;font-size:18px;animation:float 6s linear infinite;}
+@keyframes float{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(-100vh);opacity:0;}}
+.confetti{font-size:22px;}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(40px);transition:1.2s ease;}
+.fade.show{opacity:1;transform:none;}
+
+@media(max-width:600px){.hero h1{font-size:2.3em}.photo{width:200px;height:200px}.card{padding:40px}}
